@@ -4,8 +4,8 @@ import ContactList from "../ContactList/ContactList"
 import s from "./App.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-import {fetchContacts} from "../../redux/contactsOps"
-import {selectIsLoading,selectError} from "../../redux/contactsSlice"
+import {fetchContacts} from "../../redux/contacts/operations"
+import {selectIsLoading,selectError} from "../../redux/contacts/slice"
 import Loader from "../Loader/Loader"
 
 

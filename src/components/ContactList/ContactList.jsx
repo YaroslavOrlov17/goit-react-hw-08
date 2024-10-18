@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import {selectFilteredContacts} from "../../redux/contactsSlice.js"
+import {selectFilteredContacts} from "../../redux/contacts/slice"
 import Contact from "../Contact/Contact"
 import s from "./ContactList.module.css"
 

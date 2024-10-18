@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
 import { useDispatch } from "react-redux"
-import {addContact} from "../../redux/contactsOps"
+import {addContact} from "../../redux/contacts/operations"
 
 import s from "./ContactForm.module.css"
 
