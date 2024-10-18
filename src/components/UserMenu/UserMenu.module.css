@@ -1,0 +1,8 @@
+.userMenu {
+    display: flex;
+    gap: 10px;
+    button{
+        padding: 5px;
+        height: 40px;
+    }
+}
