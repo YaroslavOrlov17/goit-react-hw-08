@@ -5,7 +5,7 @@ import s from "./App.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import {fetchContacts} from "../../redux/contacts/operations"
-import {selectIsLoading,selectError} from "../../redux/contacts/slice"
+import {selectIsLoading,selectError} from "../../redux/contacts/selectors"
 import Loader from "../Loader/Loader"
 
 

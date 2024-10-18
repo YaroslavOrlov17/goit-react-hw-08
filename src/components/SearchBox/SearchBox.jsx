@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
 import s from "./SearchBox.module.css"
 import { MdOutlineSearch } from "react-icons/md"
-import { changeFilter,selectNameFilter } from "../../redux/filters/slice.js";
+import {selectNameFilter } from "../../redux/filters/selectors";
+import {changeFilter} from "../../redux/filters/slice"
 
 const SearchBox = () => {
   
