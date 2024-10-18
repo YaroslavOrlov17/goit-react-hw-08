@@ -1,12 +1,17 @@
 import { Field, Form, Formik } from "formik"
 import s from "./LoginForm.module.css"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { login } from "../../redux/auth/operations"
+import { selectIsLoggedIn } from "../../redux/auth/selectors"
+import { Navigate } from "react-router-dom"
 
 
 const LoginForm = () => {
-  const dispatch = useDispatch()
 
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const dispatch = useDispatch()
+  
   const initialValues = {
     email: "",
     password: ""
@@ -16,6 +21,12 @@ const LoginForm = () => {
     dispatch(login(values))
     options.resetForm()
   }
+
+  if(isLoggedIn){
+    return <Navigate to="/contacts"/> // ???????
+  }
+
+
   
   return (
    <div className={s.formikBox} >
