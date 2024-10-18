@@ -1,14 +1,16 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import {fetchContacts,addContact,deleteContact} from "./operations"
+import { logout } from "../auth/operations";
 
+const initialState =  {
+    items: [],
+    loading: false,
+    error: null
+}
 
 const contactsSlice = createSlice({
     name: "contacts",
-    initialState: {
-        items: [],
-        loading: false,
-        error: null
-    },
+    initialState,
     extraReducers: builder => {
         builder
         .addCase(fetchContacts.pending,(state)=>{
@@ -46,6 +48,7 @@ const contactsSlice = createSlice({
             state.loading = false
             state.error = true
         })
+        .addCase(logout.fulfilled,()=> initialState)// ???????
         .addMatcher(isAnyOf(fetchContacts.pending,addContact.pending,deleteContact.pending),(state)=>{
             state.loading = true
         })
