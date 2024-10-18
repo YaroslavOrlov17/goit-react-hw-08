@@ -1,0 +1,26 @@
+.searchInputBox {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.labelSearch {
+  display: block;
+}
+
+.searchInput {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+}
