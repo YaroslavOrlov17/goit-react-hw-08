@@ -1,17 +1,22 @@
 import { Field, Form, Formik } from "formik"
 import s from "./LoginForm.module.css"
+import { useDispatch } from "react-redux"
+import { login } from "../../redux/auth/operations"
 
-const initialValues = {
-  email: "",
-  password: ""
-}
-
-const handleSubmit = (values,options)=>{
-  console.log(values);
-  options.resetForm()
-}
 
 const LoginForm = () => {
+  const dispatch = useDispatch()
+
+  const initialValues = {
+    email: "",
+    password: ""
+  }
+  
+  const handleSubmit = (values,options)=>{
+    dispatch(login(values))
+    options.resetForm()
+  }
+  
   return (
    <div className={s.formikBox} >
      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
