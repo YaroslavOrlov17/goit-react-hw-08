@@ -1,16 +1,30 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import {fetchContacts,addContact,deleteContact} from "./operations"
+import {fetchContacts,addContact,deleteContact, editContact} from "./operations"
 import { logout } from "../auth/operations";
 
 const initialState =  {
     items: [],
     loading: false,
-    error: null
+    error: null,
+    isEdited: false,
+    isModalOpen: false, // Для управления модальным окном
+    selectedContact: null, // Для хранения редактируемого контакта
 }
 
 const contactsSlice = createSlice({
     name: "contacts",
     initialState,
+    reducers: {
+        // Открытие модального окна и сохранение выбранного контакта
+        openModal: (state, action) => {
+            state.isModalOpen = true;
+            state.selectedContact = action.payload; // контакт, который нужно редактировать
+        },
+        closeModal: (state) => {
+            state.isModalOpen = false;
+            state.selectedContact = null;
+        },
+    },
     extraReducers: builder => {
         builder
         .addCase(fetchContacts.pending,(state)=>{
@@ -48,14 +62,21 @@ const contactsSlice = createSlice({
             state.loading = false
             state.error = true
         })
-        .addCase(logout.fulfilled,()=> initialState)// ???????
+        .addCase(logout.fulfilled,()=> initialState)
+        .addCase(editContact.fulfilled, (state, action) => {
+            state.loading = false;
+            const index = state.items.findIndex(item => item.id === action.payload.id);
+            if (index >= 0) {
+              state.items[index] = action.payload; // Обновляем контакт в состоянии
+            }
+          })
         .addMatcher(isAnyOf(fetchContacts.pending,addContact.pending,deleteContact.pending),(state)=>{
             state.loading = true
         })
     }
 })
 
-
+export const { openModal, closeModal } = contactsSlice.actions;
 
 export default contactsSlice.reducer
 

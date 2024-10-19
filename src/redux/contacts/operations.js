@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { goitAPI } from "../auth/operations"
+import { goitAPI, setAuthHeader } from "../auth/operations"
 
 export const fetchContacts = createAsyncThunk("contacts/fetchAll",
     async(_,thunkAPI) => {
@@ -33,5 +33,24 @@ export const deleteContact = createAsyncThunk("contacts/deleteContact",
         }
     }
 )
+export const editContact = createAsyncThunk("contacts/editContact",
+    async({ id, updatedContact },thunkAPI)=> {
+        try{
+            const savedToken = thunkAPI.getState().auth.token
+
+            if(!savedToken){
+              return thunkAPI.rejectWithValue("Token is not exist!")
+            }
+            setAuthHeader(savedToken)
+            const {data} = await goitAPI.patch(`contacts/${id}`, updatedContact )
+            return data
+        } catch(error){
+            return thunkAPI.rejectWithValue(error.message)
+        }
+    }
+)
+
+
+
 
 
