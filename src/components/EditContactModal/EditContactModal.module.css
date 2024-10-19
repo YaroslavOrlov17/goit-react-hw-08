@@ -1,13 +1,27 @@
-.modalWrapper{
-  width: 100%;
+.modalWrapper {
+  width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.555);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden; 
+  pointer-events: none; 
+  transition: opacity 0.5s ease, visibility 0s 0.5s; 
 }
+
+.modalShow {
+  opacity: 1;
+  visibility: visible; 
+  pointer-events: auto; 
+  transition: opacity 0.7s ease; 
+}
+
 .form {
   overflow: hidden;
   background-color: rgb(145, 228, 200);

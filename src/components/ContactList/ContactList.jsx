@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import {selectEditedContact, selectFilteredContacts, selectOpenModal} from "../../redux/contacts/selectors"
+import {selectEditedContact, selectFilteredContacts} from "../../redux/contacts/selectors"
 import EditContactModal from "../EditContactModal/EditContactModal"
 import Contact from "../Contact/Contact"
 import s from "./ContactList.module.css"
@@ -8,9 +8,6 @@ import s from "./ContactList.module.css"
 const ContactList = () => {
 const contacts = useSelector(selectFilteredContacts)
 const selectedContact = useSelector(selectEditedContact)
-const isModalOpen = useSelector(selectOpenModal)
-
-
   return (
     <div>
       <ul className={s.contactList}>
@@ -20,9 +17,7 @@ const isModalOpen = useSelector(selectOpenModal)
         </li>
       ))}
     </ul>
-    {isModalOpen && selectedContact && (
-        <EditContactModal contact={selectedContact} />
-      )}
+        {<EditContactModal contact={selectedContact} />}
     </div>
   )
 }

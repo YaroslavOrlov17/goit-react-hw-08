@@ -3,13 +3,15 @@ import { nanoid } from "nanoid"
 import * as Yup from "yup"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { editContact} from "../../redux/contacts/operations"
 import ReactDOM from 'react-dom'
 
 import s from "./EditContactModal.module.css"
 import { closeModal } from "../../redux/contacts/slice"
 import { useEffect } from "react"
+import clsx from "clsx"
+import { selectOpenModal } from "../../redux/contacts/selectors"
 
 
 const phoneRegExp = /^(\d[-\d]*){3,}$/
@@ -28,13 +30,14 @@ const ContactSchema = Yup.object().shape({
 
 const modalRoot = document.querySelector("#modal-root")
 
-//-----------------------------
+//----------------------------- Начало компонента
 const EditContactModal = ({contact}) => {
   const initialValues = {
-    name: contact.name,
-    number: contact.number,
+    name: contact?.name || '', 
+    number: contact?.number || '',
   }
-  
+
+const modalIsOpen = useSelector(selectOpenModal)
 
 const dispatch = useDispatch()
 const nameId = nanoid()
@@ -51,15 +54,24 @@ function handleSubmit({name,number}, actions) {
   }
 
   useEffect(() => {
-    document.body.style.overflow = "hidden"; // Блокируем прокрутку
+    if (modalIsOpen) {
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth; // Получаем ширину полосы прокрутки
+      document.body.style.overflow = 'hidden'; // Отключаем скролл
+      document.body.style.paddingRight = `${scrollBarWidth}px`; // Добавляем padding
+    } else {
+      document.body.style.overflow = ''; // Восстанавливаем скролл
+      document.body.style.paddingRight = ''; // Убираем padding
+    }
 
     return () => {
-      document.body.style.overflow = ""; // Восстанавливаем прокрутку при размонтировании
+      document.body.style.overflow = ''; // Восстанавливаем скролл
+      document.body.style.paddingRight = ''; // Убираем padding
     };
-  }, []);
+  }, [modalIsOpen]); // что то страшное но работает спасибо гпт
+
 
   return ReactDOM.createPortal(
-    <div className={s.modalWrapper}>
+    <div className={ clsx(s.modalWrapper, modalIsOpen && s.modalShow )}>
         <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
