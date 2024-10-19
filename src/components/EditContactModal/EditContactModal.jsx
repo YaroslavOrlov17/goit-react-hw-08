@@ -10,8 +10,10 @@ import ReactDOM from 'react-dom'
 import s from "./EditContactModal.module.css"
 import { closeModal } from "../../redux/contacts/slice"
 import { useEffect } from "react"
-import clsx from "clsx"
 import { selectOpenModal } from "../../redux/contacts/selectors"
+
+
+
 
 
 const phoneRegExp = /^(\d[-\d]*){3,}$/
@@ -33,12 +35,11 @@ const modalRoot = document.querySelector("#modal-root")
 //----------------------------- Начало компонента
 const EditContactModal = ({contact}) => {
   const initialValues = {
-    name: contact?.name || '', 
-    number: contact?.number || '',
+    name: contact.name, 
+    number: contact.number 
   }
 
 const modalIsOpen = useSelector(selectOpenModal)
-
 const dispatch = useDispatch()
 const nameId = nanoid()
 const numId = nanoid()
@@ -55,23 +56,19 @@ function handleSubmit({name,number}, actions) {
 
   useEffect(() => {
     if (modalIsOpen) {
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth; // Получаем ширину полосы прокрутки
-      document.body.style.overflow = 'hidden'; // Отключаем скролл
-      document.body.style.paddingRight = `${scrollBarWidth}px`; // Добавляем padding
+      document.body.style.overflow = 'hidden'; // Отключаем скролл при открытой модалке
     } else {
-      document.body.style.overflow = ''; // Восстанавливаем скролл
-      document.body.style.paddingRight = ''; // Убираем padding
+      document.body.style.overflow = ''; // Восстанавливаем скролл при закрытии модалки
     }
 
+    // Очистка при размонтировании компонента или закрытии модалки
     return () => {
       document.body.style.overflow = ''; // Восстанавливаем скролл
-      document.body.style.paddingRight = ''; // Убираем padding
     };
-  }, [modalIsOpen]); // что то страшное но работает спасибо гпт
-
+  }, [modalIsOpen]);
 
   return ReactDOM.createPortal(
-    <div className={ clsx(s.modalWrapper, modalIsOpen && s.modalShow )}>
+    <div className={s.modalWrapper}>
         <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
