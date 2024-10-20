@@ -20,7 +20,8 @@ function ContactsPage() {
   
 
   return (
-    <div className="container">
+    <div className={s.contactsPage}>
+      <div className={s.contactForm}>
       <div className={s.titleBox}>
         <div className={s.position}>
         <h1 className={s.pbTitle}>PhoneBook</h1>
@@ -29,6 +30,7 @@ function ContactsPage() {
       </div>
       <ContactForm  /> 
       <SearchBox />
+      </div>
       <ContactList />
       {isError && <h2>Something went wrong. Please, try again!</h2>}
     </div>

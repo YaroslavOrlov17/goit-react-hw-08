@@ -88,13 +88,15 @@ function handleSubmit({name,number}, actions) {
           <Field className={s.formInput} id={numId} name="number" />
           <ErrorMessage className={s.error} name="number" component="span" />
         </div>
-
-        <button className={s.formBtn} type="submit">
+        <div className={s.btnBox}>
+          
+        <button className={s.formBtnSave} type="submit">
           Save
         </button>
-        <button className={s.formBtn} onClick={()=>dispatch(closeModal())} type="button">
+        <button className={s.formBtnCancel} onClick={()=>dispatch(closeModal())} type="button">
          Cancel
         </button>
+        </div>
       </Form>
     </Formik>
     </div>, modalRoot

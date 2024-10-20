@@ -3,6 +3,8 @@ import {deleteContact} from "../../redux/contacts/operations"
 import { useDispatch } from "react-redux"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import { openModal } from "../../redux/contacts/slice"
 
 const Contact = ({ contactData,contactData: { name, number, id }}) => {
@@ -17,12 +19,16 @@ const Contact = ({ contactData,contactData: { name, number, id }}) => {
         <p className={s.contactName}>
           <IoPersonCircle className={s.contactIcon} size="25" /> {name}
         </p>
-        <p>
+        <p className={s.contactName}>
           <FaPhoneSquare className={s.contactIcon} size="25" /> {number}
         </p>
       </div>
-      <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
-      <button onClick={()=> handleEditClick(contactData)}>Edit</button>
+      <div className={s.btnBox}>
+      <button onClick={() => dispatch(deleteContact(id))} className={s.btn}><MdDelete size="25" /></button>
+      <button onClick={()=> handleEditClick(contactData)} className={s.btn}><MdEdit size="25" /></button>
+      
+
+      </div>
     </div>
   )
 }

@@ -1,5 +1,26 @@
+.contactListBox{
+  margin-left: 350px; 
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(255, 255, 255, 0.205) rgba(241, 241, 241, 0.116); 
+  padding-right: 5px;
+ }
+
+
+ .contactListBox::-webkit-scrollbar {
+  width: 50px; /* Ширина скроллбара */
+}
+
+
 .contactList {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
+  
 }
+
+
+
+

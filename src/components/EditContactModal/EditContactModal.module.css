@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.555);
+  background-color: rgba(58, 58, 58, 0.349);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,21 +14,21 @@
 
 
 .form {
-  overflow: hidden;
-  background-color: rgb(145, 228, 200);
-    margin: 0 auto;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 20px;
-    border: 2px solid black;
-    padding: 20px;
-    border-radius: 20px;
-    label {
-      font-weight: 600;
-    }
+  margin: 0 auto;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.274);
+  box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
+  color: white;
+  label {
+    font-weight: 600;
   }
+}
   
   .formName,
   .formNumber {
@@ -40,11 +40,35 @@
     width: 100%;
     padding-right: 40px;
   }
+
+  .btnBox{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
   
-  .formBtn {
+  .formBtnCancel {
+    color: rgb(206, 59, 59);
     margin: 0 auto;
     width: 30%;
   }
+  .formBtnCancel:hover {
+    margin: 0 auto;
+    width: 30%;
+    border: 1.5px solid rgb(206, 59, 59);
+  }
+  .formBtnSave {
+    color: rgb(59, 163, 81);
+    margin: 0 auto;
+    width: 30%;
+  }
+  .formBtnSave:hover {
+    margin: 0 auto;
+    width: 30%;
+    border: 1.5px solid rgb(59, 163, 81);
+  }
+
+
   
   .error {
     position: absolute;

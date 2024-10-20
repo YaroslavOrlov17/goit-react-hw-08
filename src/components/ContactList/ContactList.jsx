@@ -12,7 +12,7 @@ const isModalOpen = useSelector(selectOpenModal)
 
 
   return (
-    <div>
+    <div className={s.contactListBox}>
       <ul className={s.contactList}>
       {contacts.map((contact) => (
         <li key={contact.id}>

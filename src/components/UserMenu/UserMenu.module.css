@@ -1,6 +1,7 @@
 .userMenu {
     display: flex;
     gap: 10px;
+    color: white;
     button{
         padding: 5px;
         height: 40px;

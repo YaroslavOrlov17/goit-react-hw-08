@@ -1,6 +1,28 @@
+.contactsPage {
+  position: relative;
+  margin: 0 auto;
+  padding: 15px 200px 15px 50px;
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(252, 252, 252, 0.158);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.contactForm {
+  position: fixed; 
+  top: 50%;  
+  left: 25%;
+  transform: translate(-50%, -50%); 
+}
+
 .titleBox{
     text-align: center;
-    
+    color: white;
   }
   
   .position{
