@@ -53,3 +53,24 @@
     border-bottom-right-radius: 20px; 
 }
 
+
+.infoBox {
+    position: relative;
+    padding-top: 150px;
+}
+
+.infoTitle {
+    font-weight: bold;
+    color: white;
+    font-size: 50px;
+    width: 80%;
+}
+
+.error {
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    color: red;
+  }
+
+

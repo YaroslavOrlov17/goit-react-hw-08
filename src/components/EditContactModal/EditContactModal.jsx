@@ -56,14 +56,12 @@ function handleSubmit({name,number}, actions) {
 
   useEffect(() => {
     if (modalIsOpen) {
-      document.body.style.overflow = 'hidden'; // Отключаем скролл при открытой модалке
+      document.body.style.overflow = 'hidden'; 
     } else {
-      document.body.style.overflow = ''; // Восстанавливаем скролл при закрытии модалки
+      document.body.style.overflow = ''; 
     }
-
-    // Очистка при размонтировании компонента или закрытии модалки
     return () => {
-      document.body.style.overflow = ''; // Восстанавливаем скролл
+      document.body.style.overflow = ''; 
     };
   }, [modalIsOpen]);
 
@@ -89,7 +87,6 @@ function handleSubmit({name,number}, actions) {
           <ErrorMessage className={s.error} name="number" component="span" />
         </div>
         <div className={s.btnBox}>
-          
         <button className={s.formBtnSave} type="submit">
           Save
         </button>
