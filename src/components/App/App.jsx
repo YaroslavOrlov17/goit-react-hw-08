@@ -23,7 +23,7 @@ function App() {
   return (isRefreshing ? (null): // !!! Поставить лоадер
     (<Routes>
       <Route path="/" element={<Layout/>}>
-        <Route index element={<HomePage/>}/>
+        <Route index  element={<RestrictedRoute component={<HomePage/>} redirectTo="/contacts"/> } />
         <Route path="contacts" element={<PrivateRoute component={<ContactsPage/>} redirectTo="/login"/>}/>
         <Route path="login" element={<RestrictedRoute component={<LoginPage/>} redirectTo="/contacts"/> }/>
         <Route path="register" element={<RestrictedRoute component={<RegistrationPage/>} redirectTo="/contacts"/> }/>
