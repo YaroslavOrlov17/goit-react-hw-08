@@ -8,7 +8,7 @@ const UserMenu = () => {
   const dispatch = useDispatch()
   return (
     <div className={s.userMenu}>
-        <p>Welcome, {user.name}!</p>
+        <p className={s.userName}><span>Welcome, {user.name}!</span></p>
         <button onClick={()=> dispatch(logout())}>Logout</button>
     </div>
   )

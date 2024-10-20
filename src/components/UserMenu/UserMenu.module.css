@@ -7,3 +7,12 @@
         height: 40px;
     }
 }
+
+.userName{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
