@@ -1,7 +1,7 @@
 .contactsPage {
   position: relative;
   margin: 0 auto;
-  padding: 15px 200px 15px 50px;
+  padding: 15px 50px 15px 50px;
   width: 90%;
   height: 80vh;
   display: flex;
@@ -11,6 +11,11 @@
   border-radius: 20px;
   box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
   overflow: hidden;
+}
+
+.fakeDiv{
+  width: 40%;
+  height: 80vh;
 }
 
 .contactForm {

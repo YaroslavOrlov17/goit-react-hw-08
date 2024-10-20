@@ -21,6 +21,7 @@ function ContactsPage() {
 
   return (
     <div className={s.contactsPage}>
+      <div className={s.fakeDiv}></div>
       <div className={s.contactForm}>
       <div className={s.titleBox}>
         <div className={s.position}>

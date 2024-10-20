@@ -1,0 +1,13 @@
+.mainTitleBox {
+   margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTitle{
+    
+    color: white;
+    font-size: 65px;
+    font-weight: 800;
+}
