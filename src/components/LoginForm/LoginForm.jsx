@@ -3,6 +3,7 @@ import * as Yup from "yup"
 import s from "./LoginForm.module.css"
 import { useDispatch } from "react-redux"
 import { login } from "../../redux/auth/operations"
+import toast from "react-hot-toast"
 
 
 
@@ -34,6 +35,11 @@ const LoginForm = () => {
   
   const handleSubmit = (values,options)=>{
     dispatch(login(values))
+    .unwrap()
+    .then((res)=>{
+      toast(`Welcome ${res.user.name}!`)
+
+    })
     options.resetForm()
   }
 
