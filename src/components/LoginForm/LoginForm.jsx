@@ -38,10 +38,19 @@ const LoginForm = () => {
     .unwrap()
     .then((res)=>{
       toast(`Welcome, ${res.user.name}!`, {
-        icon: '🤙'})
+        icon: '🤙',
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }})
     })
     .catch(()=>{
-      toast.error("Invalid credentials!")
+      toast.error("Invalid credentials!",{
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }
+      })
     })
     options.resetForm()
   }

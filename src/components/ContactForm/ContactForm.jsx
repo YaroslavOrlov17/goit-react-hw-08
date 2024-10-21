@@ -38,7 +38,12 @@ function handleSubmit(values, actions) {
     dispatch(addContact(addNewContact))
     .unwrap()
     .then(()=>{
-      toast.success(`Contact added`)
+      toast.success(`Contact added`,{
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }
+      })
     })
     actions.resetForm()
   }

@@ -19,7 +19,12 @@ const Contact = ({ contactData,contactData: { name, number, id }}) => {
     dispatch(deleteContact(id))
     .unwrap()
     .then(()=>{
-      toast.success("Contact deleted!")
+      toast.success("Contact deleted!",{
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }
+      })
     })
   }
   return (

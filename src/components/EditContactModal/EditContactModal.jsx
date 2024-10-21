@@ -53,7 +53,12 @@ function handleSubmit({name,number}, actions) {
     }}))
     .unwrap()
     .then(()=>{
-      toast.success("Contact edited!")
+      toast.success("Contact edited!",{
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }
+      })
     })
     dispatch(closeModal())
     actions.resetForm()

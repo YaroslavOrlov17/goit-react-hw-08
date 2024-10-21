@@ -44,10 +44,19 @@ const RegistrationForm = () => {
     .unwrap()
     .then((res)=>{
       toast(`Welcome, ${res.user.name}!`, {
-        icon: '🤙'})
+        icon: '🤙',
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }})
     })
     .catch(()=>{
-      toast.error("Registration unsuccessful")
+      toast.error("Registration unsuccessful",{
+        style: {
+          backgroundColor: 'rgba(255, 255, 255, 0.300)',
+          color: 'rgb(255, 255, 255)',
+        }
+      })
     })
     options.resetForm()
 
