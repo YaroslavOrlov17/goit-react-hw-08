@@ -31,19 +31,16 @@ const ContactSchema = Yup.object().shape({
 const ContactForm = () => {
 
 const dispatch = useDispatch()
+
 const nameId = nanoid()
 const numId = nanoid()
+
 function handleSubmit(values, actions) {
     const addNewContact = { ...values,}
     dispatch(addContact(addNewContact))
     .unwrap()
     .then(()=>{
-      toast.success(`Contact added`,{
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }
-      })
+      toast.success(`Contact added`)
     })
     actions.resetForm()
   }

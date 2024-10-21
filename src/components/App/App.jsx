@@ -20,7 +20,7 @@ function App() {
     dispatch(refreshUser())
   },[dispatch])
  
-  return (isRefreshing ? (null): // !!! Поставить лоадер
+  return (isRefreshing ? (null):
     (<Routes>
       <Route path="/" element={<Layout/>}>
         <Route index  element={<HomePage/>} />

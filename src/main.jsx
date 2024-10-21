@@ -15,7 +15,12 @@ createRoot(document.getElementById("root")).render(
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <App />
-        <Toaster />
+        <Toaster 
+        toastOptions={{
+           style: {
+            backgroundColor: 'rgba(255, 255, 255, 0.300)',
+            color: 'rgb(255, 255, 255)',
+          }}}/>
       </BrowserRouter>
     </PersistGate>
     </Provider>

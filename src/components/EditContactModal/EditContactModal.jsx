@@ -14,9 +14,6 @@ import { selectOpenModal } from "../../redux/contacts/selectors"
 import toast from "react-hot-toast"
 
 
-
-
-
 const phoneRegExp = /^(\d[-\d]*){3,}$/
 
 const ContactSchema = Yup.object().shape({
@@ -33,15 +30,18 @@ const ContactSchema = Yup.object().shape({
 
 const modalRoot = document.querySelector("#modal-root")
 
-//----------------------------- Начало компонента
+
 const EditContactModal = ({contact}) => {
+  
   const initialValues = {
     name: contact.name, 
     number: contact.number 
   }
 
 const modalIsOpen = useSelector(selectOpenModal)
+
 const dispatch = useDispatch()
+
 const nameId = nanoid()
 const numId = nanoid()
 
@@ -53,12 +53,7 @@ function handleSubmit({name,number}, actions) {
     }}))
     .unwrap()
     .then(()=>{
-      toast.success("Contact edited!",{
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }
-      })
+      toast.success("Contact edited!")
     })
     dispatch(closeModal())
     actions.resetForm()

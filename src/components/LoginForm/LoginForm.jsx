@@ -6,8 +6,6 @@ import { login } from "../../redux/auth/operations"
 import toast from "react-hot-toast"
 
 
-
-
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
@@ -39,18 +37,10 @@ const LoginForm = () => {
     .then((res)=>{
       toast(`Welcome, ${res.user.name}!`, {
         icon: '🤙',
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }})
+        })
     })
     .catch(()=>{
-      toast.error("Invalid credentials!",{
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }
-      })
+      toast.error("Invalid credentials!")
     })
     options.resetForm()
   }

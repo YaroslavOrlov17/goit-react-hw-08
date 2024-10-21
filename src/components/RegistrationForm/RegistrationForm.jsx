@@ -6,8 +6,6 @@ import { register } from "../../redux/auth/operations"
 import toast from "react-hot-toast"
 
 
-
-
 const usernamePattern = /^[a-zA-Z0-9_-]{3,20}$/;
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -45,18 +43,10 @@ const RegistrationForm = () => {
     .then((res)=>{
       toast(`Welcome, ${res.user.name}!`, {
         icon: '🤙',
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }})
+       })
     })
     .catch(()=>{
-      toast.error("Registration unsuccessful",{
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }
-      })
+      toast.error("Registration unsuccessful")
     })
     options.resetForm()
 

@@ -14,10 +14,7 @@ const UserMenu = () => {
     .then(()=>{
       toast(`Bye Bye !`, {
         icon: '👋',
-        style: {
-          backgroundColor: 'rgba(255, 255, 255, 0.300)',
-          color: 'rgb(255, 255, 255)',
-        }})
+        })
     })
   }
 

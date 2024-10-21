@@ -7,18 +7,17 @@ const initialState =  {
     loading: false,
     error: null,
     isEdited: false,
-    isModalOpen: false, // Для управления модальным окном
-    selectedContact: null, // Для хранения редактируемого контакта
+    isModalOpen: false, 
+    selectedContact: null, 
 }
 
 const contactsSlice = createSlice({
     name: "contacts",
     initialState,
     reducers: {
-        // Открытие модального окна и сохранение выбранного контакта
         openModal: (state, action) => {
             state.isModalOpen = true;
-            state.selectedContact = action.payload; // контакт, который нужно редактировать
+            state.selectedContact = action.payload;
         },
         closeModal: (state) => {
             state.isModalOpen = false;
@@ -67,7 +66,7 @@ const contactsSlice = createSlice({
             state.loading = false;
             const index = state.items.findIndex(item => item.id === action.payload.id);
             if (index >= 0) {
-              state.items[index] = action.payload; // Обновляем контакт в состоянии
+              state.items[index] = action.payload; 
             }
           })
         .addMatcher(isAnyOf(fetchContacts.pending,addContact.pending,deleteContact.pending),(state)=>{
