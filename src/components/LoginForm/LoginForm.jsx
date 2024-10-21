@@ -37,8 +37,11 @@ const LoginForm = () => {
     dispatch(login(values))
     .unwrap()
     .then((res)=>{
-      toast(`Welcome ${res.user.name}!`)
-
+      toast(`Welcome, ${res.user.name}!`, {
+        icon: '🤙'})
+    })
+    .catch(()=>{
+      toast.error("Invalid credentials!")
     })
     options.resetForm()
   }

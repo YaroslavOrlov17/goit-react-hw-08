@@ -11,6 +11,7 @@ import s from "./EditContactModal.module.css"
 import { closeModal } from "../../redux/contacts/slice"
 import { useEffect } from "react"
 import { selectOpenModal } from "../../redux/contacts/selectors"
+import toast from "react-hot-toast"
 
 
 
@@ -50,6 +51,10 @@ function handleSubmit({name,number}, actions) {
       name,
       number
     }}))
+    .unwrap()
+    .then(()=>{
+      toast.success("Contact edited!")
+    })
     dispatch(closeModal())
     actions.resetForm()
   }

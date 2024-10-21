@@ -3,6 +3,7 @@ import * as Yup from "yup"
 import s from "./RegistrationForm.module.css"
 import { useDispatch } from "react-redux"
 import { register } from "../../redux/auth/operations"
+import toast from "react-hot-toast"
 
 
 
@@ -40,6 +41,14 @@ const RegistrationForm = () => {
 
   const handleSubmit = (values,options)=>{
     dispatch(register(values))
+    .unwrap()
+    .then((res)=>{
+      toast(`Welcome, ${res.user.name}!`, {
+        icon: '🤙'})
+    })
+    .catch(()=>{
+      toast.error("Registration unsuccessful")
+    })
     options.resetForm()
 
   }

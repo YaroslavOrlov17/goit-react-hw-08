@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import {addContact} from "../../redux/contacts/operations"
 
 import s from "./ContactForm.module.css"
+import toast from "react-hot-toast"
 
 const initialValues = {
   name: "",
@@ -35,6 +36,10 @@ const numId = nanoid()
 function handleSubmit(values, actions) {
     const addNewContact = { ...values,}
     dispatch(addContact(addNewContact))
+    .unwrap()
+    .then(()=>{
+      toast.success(`Contact added`)
+    })
     actions.resetForm()
   }
 
