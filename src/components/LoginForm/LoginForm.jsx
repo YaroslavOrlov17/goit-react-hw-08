@@ -61,12 +61,12 @@ const LoginForm = () => {
     <Form className={s.loginFormBox}>
       <label className={s.label} >
         <span className={s.labelText}>Email</span>
-        <Field type="email" name="email"/>  
+        <Field type="email" name="email" placeholder="Enter your email"/>  
         <ErrorMessage className={s.error} name="email" component="span" />
       </label>
       <label >
       <span className={s.labelText}>Password</span>
-        <Field type="password" name="password"/>
+        <Field type="password" name="password"  placeholder="Enter your password"/>
         <ErrorMessage className={s.error} name="password" component="span" />
       </label>
       <button className={s.btn} type="submit">Login</button>

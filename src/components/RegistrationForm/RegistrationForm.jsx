@@ -68,17 +68,17 @@ const RegistrationForm = () => {
     <Form className={s.regFormBox}>
       <label className={s.label} >
         <span className={s.labelText}>Name</span>
-        <Field type="text" name="name"/> 
+        <Field type="text" name="name" placeholder="Enter your name"/> 
         <ErrorMessage className={s.error} name="name" component="span" />
       </label>
       <label className={s.label}>
         <span className={s.labelText}>Email</span>
-        <Field type="email" name="email"/>
+        <Field type="email" name="email"  placeholder="Enter your email"/>
         <ErrorMessage className={s.error} name="email" component="span" />
       </label>
       <label className={s.label}>
       <span className={s.labelText}>Password</span>
-        <Field type="password" name="password"/>
+        <Field type="password" name="password" placeholder="Enter a password (at least 8 characters)"/>
         <ErrorMessage className={s.error} name="password" component="span"/>
       </label>
       <button className={s.btn} type="submit">Register</button>
