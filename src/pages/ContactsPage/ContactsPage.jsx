@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import {fetchContacts} from "../../redux/contacts/operations"
 import {selectIsLoading,selectError} from "../../redux/contacts/selectors"
 import Loader from "../../components/Loader/Loader"
+import toast from "react-hot-toast"
 
 
 function ContactsPage() {
@@ -15,10 +16,13 @@ function ContactsPage() {
   
   const dispatch = useDispatch()
   useEffect(()=>{
+    if (isError) {
+      toast.error("Something went wrong. Please, try again!");
+    }
     dispatch(fetchContacts())
-  },[dispatch])
+  },[dispatch,isError])
   
-
+ 
   return (
     <div className={s.contactsPage}>
       <div className={s.fakeDiv}></div>
@@ -33,7 +37,6 @@ function ContactsPage() {
       <SearchBox />
       </div>
       <ContactList />
-      {isError && <h2>Something went wrong. Please, try again!</h2>}
     </div>
   )
 }
