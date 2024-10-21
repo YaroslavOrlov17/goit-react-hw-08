@@ -22,7 +22,7 @@
 }
 
 .loginFormBox{
-    width: 70%;
+   min-width: 230px;
     height: 80%;
     padding: 40px;
     border-radius: 20px;

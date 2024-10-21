@@ -8,6 +8,12 @@
   padding-right: 5px;
  }
 
+ @media (max-width: 1440px) {
+  .contactListBox{
+    margin-right: 0px;
+   }
+ }
+
 
  .contactListBox::-webkit-scrollbar {
   width: 50px; /* Ширина скроллбара */
