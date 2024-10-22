@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
 import { useDispatch } from "react-redux"
-import {addContact} from "../../redux/contacts/operations"
+import { addContact } from "../../redux/contacts/operations"
 
 import s from "./ContactForm.module.css"
 import toast from "react-hot-toast"
@@ -14,7 +14,7 @@ const initialValues = {
   number: "",
 }
 
-const phoneRegExp = /^(\d[-\d]*){3,}$/
+const phoneRegExp = /^\d+$/
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -29,19 +29,18 @@ const ContactSchema = Yup.object().shape({
 })
 
 const ContactForm = () => {
+  const dispatch = useDispatch()
 
-const dispatch = useDispatch()
+  const nameId = nanoid()
+  const numId = nanoid()
 
-const nameId = nanoid()
-const numId = nanoid()
-
-function handleSubmit(values, actions) {
-    const addNewContact = { ...values,}
+  function handleSubmit(values, actions) {
+    const addNewContact = { ...values }
     dispatch(addContact(addNewContact))
-    .unwrap()
-    .then(()=>{
-      toast.success(`Contact added`)
-    })
+      .unwrap()
+      .then(() => {
+        toast.success(`Contact added`)
+      })
     actions.resetForm()
   }
 

@@ -12,12 +12,10 @@ export const selectFilteredContacts = createSelector(
   (contacts, filter) => {
     if (!filter) return contacts
     const toLowercasedFilter = filter.toLowerCase()
-    return contacts.filter((contact) => {
-      const sanitizedPhone = contact.number.replace(/[-\s]/g, "")
-      return (
+    return contacts.filter(
+      (contact) =>
         contact.name.toLowerCase().includes(toLowercasedFilter) ||
-        sanitizedPhone.includes(toLowercasedFilter)
-      )
-    })
+        contact.number.includes(toLowercasedFilter)
+    )
   }
 )
