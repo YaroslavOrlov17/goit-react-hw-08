@@ -15,6 +15,14 @@
   }
 }
 
+
+@media (max-width: 1090px) {
+  .form{
+    max-width: 340px;
+  }
+ }
+
+
 .formName,
 .formNumber {
   position: relative;

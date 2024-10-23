@@ -5,7 +5,7 @@
   width: 90%;
   height: 80vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: rgba(252, 252, 252, 0.158);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -13,17 +13,33 @@
   overflow: hidden;
 }
 
+@media (max-width: 1090px) {
+  .contactsPage{
+    padding: 15px 15px 15px 15px;
+  }
+ }
+
+
 .fakeDiv{
   width: 40%;
-  height: 80vh;
 }
 
 .contactForm {
   position: fixed; 
-  top: 50%;  
+  top: 350px;  
   left: 25%;
   transform: translate(-50%, -50%); 
 }
+
+@media (max-width: 850px) {
+  .contactForm {
+    position: fixed; 
+    top: 350px;  
+    left: 200px;
+    transform: translate(-50%, -50%); 
+  }
+ }
+
 
 .titleBox{
     text-align: center;
