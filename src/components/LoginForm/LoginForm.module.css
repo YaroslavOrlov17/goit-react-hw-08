@@ -77,3 +77,27 @@
     font-size: 14px;
     color: red;
   }
+
+
+  @media (max-width: 950px) {
+    .input{
+        max-width: 250px;
+     }
+     .infoTitle {
+        font-weight: bold;
+        color: white;
+        font-size: 35px;
+    }
+    .formikBox {
+        width: 60%;
+    }
+    .input::placeholder{
+        font-size: 12px;
+     }
+     .infoBox {
+        padding-top: 100px;
+       
+    }
+   }
+  
+

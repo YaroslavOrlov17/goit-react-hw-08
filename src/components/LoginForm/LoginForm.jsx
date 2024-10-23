@@ -37,6 +37,7 @@ const LoginForm = () => {
     .then((res)=>{
       toast(`Welcome, ${res.user.name}!`, {
         icon: '🤙',
+        position:"bottom-center"
         })
     })
     .catch(()=>{
@@ -51,12 +52,12 @@ const LoginForm = () => {
     <Form className={s.loginFormBox}>
       <label className={s.label} >
         <span className={s.labelText}>Email</span>
-        <Field type="email" name="email" placeholder="Enter your email"/>  
+        <Field className={s.input} type="email" name="email" placeholder="Enter your email"/>  
         <ErrorMessage className={s.error} name="email" component="span" />
       </label>
       <label >
       <span className={s.labelText}>Password</span>
-        <Field type="password" name="password"  placeholder="Enter your password"/>
+        <Field className={s.input} type="password" name="password"  placeholder="Enter your password"/>
         <ErrorMessage className={s.error} name="password" component="span" />
       </label>
       <button className={s.btn} type="submit">Login</button>
