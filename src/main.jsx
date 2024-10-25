@@ -12,17 +12,20 @@ import { Toaster } from "react-hot-toast"
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
-        <App />
-        <Toaster 
-        toastOptions={{
-           style: {
-            backgroundColor: 'rgba(255, 255, 255, 0.300)',
-            color: 'rgb(255, 255, 255)',
-          }}}/>
-      </BrowserRouter>
-    </PersistGate>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <App />
+          <Toaster
+            toastOptions={{
+              style: {
+                backgroundColor: "rgba(255, 255, 255, 0.300)",
+                color: "rgb(255, 255, 255)",
+              },
+              position: "bottom-center",
+            }}
+          />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </StrictMode>
 )

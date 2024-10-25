@@ -60,19 +60,35 @@ const EditContactModal = ({ contact }) => {
     actions.resetForm()
   }
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      dispatch(closeModal())
+    }
+  }
+
   useEffect(() => {
     if (modalIsOpen) {
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = ""
     }
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        dispatch(closeModal())
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+
     return () => {
       document.body.style.overflow = ""
+      document.removeEventListener("keydown", handleKeyDown)
     }
-  }, [modalIsOpen])
+  }, [modalIsOpen, dispatch])
 
   return ReactDOM.createPortal(
-    <div className={s.modalWrapper}>
+    <div className={s.modalWrapper} onClick={handleBackdropClick}>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
