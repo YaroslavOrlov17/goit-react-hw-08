@@ -77,3 +77,56 @@ input::placeholder {
   font-size: 14px;
 }
 
+
+.swal2-backdrop-show {
+  backdrop-filter: blur(10px);
+}
+
+.swal2-popup {
+  font-size: 12px; 
+}
+
+
+.popup {
+  width: 400px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.274);
+  box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.confirmBtn {
+  width: 100px;
+color: rgb(206, 59, 59);
+cursor: pointer;
+padding: 10px;
+border: 2px solid transparent;
+background-color: rgba(255, 255, 255, 0.185);
+border-radius: 10px;
+font-size: 20px;
+transition: all 0.3s ease-out;
+margin-right: 15px;
+}
+
+.confirmBtn:hover {
+  border: 1.5px solid rgb(206, 59, 59);
+}
+
+
+.cancelBtn {
+  width: 100px;
+  color: rgb(59, 163, 81);
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.185);
+  border-radius: 10px;
+  font-size: 20px;
+  transition: all 0.3s ease-out;
+}
+
+.cancelBtn:hover {
+  border: 1.5px solid rgb(59, 163, 81);
+}
+
