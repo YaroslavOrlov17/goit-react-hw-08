@@ -8,6 +8,7 @@ import {fetchContacts} from "../../redux/contacts/operations"
 import {selectIsLoading,selectError} from "../../redux/contacts/selectors"
 import Loader from "../../components/Loader/Loader"
 import toast from "react-hot-toast"
+import Favorite from "../../components/Favorite/Favorite"
 
 
 function ContactsPage() {
@@ -35,6 +36,7 @@ function ContactsPage() {
       </div>
       <ContactForm  /> 
       <SearchBox />
+      <Favorite/>
       </div>
       <ContactList />
     </div>

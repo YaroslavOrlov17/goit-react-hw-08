@@ -19,3 +19,5 @@ export const selectFilteredContacts = createSelector(
     )
   }
 )
+
+export const selectShowFavorites  = (state) => state.contacts.showFavorites
