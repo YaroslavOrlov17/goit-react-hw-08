@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import {
-  selectFilteredContacts,
   selectShowFavorites,
 } from "../../redux/contacts/selectors"
 import Contact from "../Contact/Contact"
@@ -17,7 +16,7 @@ const ContactList = () => {
   return []})
 
 
-  const contacts = useSelector(selectFilteredContacts).toSorted((a, b) =>
+  const contacts = useSelector((state) => state.filters.searchResults).toSorted((a, b) =>
     b.name.localeCompare(a.name, "en", { sensitivity: "base" })
   )
 

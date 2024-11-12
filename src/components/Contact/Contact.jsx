@@ -14,6 +14,10 @@ import * as Yup from "yup"
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import { nanoid } from "nanoid"
 import ReactDOM from 'react-dom/client';
+import { IMask } from "react-imask"
+import { IMaskInput } from 'react-imask';
+
+import { useMemo } from "react"
 
 const Contact = ({ favContacts,contactData,contactData: { name, number, id },addFavorite}) => {
 
@@ -119,7 +123,7 @@ Swal.fire({
                 toast.success(`Contact edited!`)
               }}
             >
-              {({ submitForm }) => (
+              {({ submitForm,setFieldValue }) => (
                 <Form className={s.form}>
                   <label htmlFor={nameId}>Name</label>
           <div className={s.formName}>
@@ -131,7 +135,15 @@ Swal.fire({
           <label htmlFor={numId}>Number</label>
           <div className={s.formNumber}>
             <FaPhoneSquare className={s.phoneIconF} size="22" />
-            <Field className={s.formInput} id={numId} name="number" />
+            <IMaskInput
+              mask="(000) 000-00-00"
+              unmask={true}
+              id={numId}
+              name="number"
+               className={s.formInput}
+               defaultValue={initialValues.number}
+              onAccept={(value) => setFieldValue("number", value)}
+  />
             <ErrorMessage className={s.error} name="number" component="span" />
           </div>
           <div className={s.btnBoxF}>
@@ -169,6 +181,16 @@ Swal.fire({
 
   const isActive = favContacts.includes(id)
 
+
+  const formattedNumber = useMemo(() => {
+    const maskOptions = {
+      mask: '(000) 000-00-00',
+    };
+    const phoneMask = IMask.createMask(maskOptions);
+    phoneMask.value = number;
+    return phoneMask.value;
+  }, [number]); 
+
   return (
     <div className={s.contactBox}>
       <div className={s.infoBox}>
@@ -176,7 +198,7 @@ Swal.fire({
           <IoPersonCircle className={s.contactIcon} size="25" /> {name}
         </p>
         <p className={s.contactName}>
-          <FaPhoneSquare className={s.contactIcon} size="25" /> {number}
+          <FaPhoneSquare className={s.contactIcon} size="25" /> {formattedNumber}
         </p>
       </div>
       <div className={s.btnBox}>

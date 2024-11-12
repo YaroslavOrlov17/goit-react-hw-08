@@ -1,12 +1,12 @@
-import { useDispatch } from "react-redux"
 import s from "./SearchBox.module.css"
 import { MdOutlineSearch } from "react-icons/md"
-import { changeFilter } from "../../redux/filters/slice"
+import { useFuseSearch } from "../../services/useFuseSearch"
 
 const SearchBox = () => {
-  const dispatch = useDispatch()
+
+  const handleSearch = useFuseSearch();
   const handleChange = (e) => {
-    dispatch(changeFilter(e.target.value))
+    handleSearch(e.target.value)
   }
 
   return (

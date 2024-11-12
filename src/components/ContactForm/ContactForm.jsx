@@ -5,16 +5,18 @@ import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
 import { useDispatch } from "react-redux"
 import { addContact } from "../../redux/contacts/operations"
+import { IMaskInput } from 'react-imask';
 
 import s from "./ContactForm.module.css"
 import toast from "react-hot-toast"
+import { useState } from "react"
 
 const initialValues = {
   name: "",
   number: "",
 }
 
-const phoneRegExp = /^\d+$/
+
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -24,11 +26,11 @@ const ContactSchema = Yup.object().shape({
   number: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
-    .matches(phoneRegExp, "Incorrect phone number")
     .required("Required field"),
 })
 
 const ContactForm = () => {
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch()
 
   const nameId = nanoid()
@@ -42,6 +44,7 @@ const ContactForm = () => {
         toast.success(`Contact added`)
       })
     actions.resetForm()
+    setNumber(''); 
   }
 
   return (
@@ -50,6 +53,7 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       validationSchema={ContactSchema}
     >
+      {({ setFieldValue }) =>
       <Form className={s.form}>
         <label htmlFor={nameId}>Name</label>
         <div className={s.formName}>
@@ -61,7 +65,18 @@ const ContactForm = () => {
         <label htmlFor={numId}>Number</label>
         <div className={s.formNumber}>
           <FaPhoneSquare className={s.phoneIcon} size="22" />
-          <Field className={s.formInput} id={numId} name="number" />
+          <IMaskInput
+              mask="(000) 000-00-00"
+              id="number"
+              name="number"
+              unmask={true}
+              value={number}
+              className={s.formInput}
+              onAccept={(value) => {
+                setNumber(value);  
+                setFieldValue("number", value)
+              }}
+            />
           <ErrorMessage className={s.error} name="number" component="span" />
         </div>
 
@@ -69,6 +84,7 @@ const ContactForm = () => {
           Create
         </button>
       </Form>
+       }
     </Formik>
   )
 }
