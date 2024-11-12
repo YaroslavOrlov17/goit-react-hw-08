@@ -7,7 +7,6 @@ const initialState =  {
     loading: false,
     error: null,
     isEdited: false,
-    isModalOpen: false, 
     selectedContact: null,
     showFavorites: false
 }
@@ -17,13 +16,9 @@ const contactsSlice = createSlice({
     initialState,
     reducers: {
         openModal: (state, action) => {
-            state.isModalOpen = true;
             state.selectedContact = action.payload;
         },
-        closeModal: (state) => {
-            state.isModalOpen = false;
-            state.selectedContact = null;
-        },
+      
         toggleShow: (state)=> {state.showFavorites = !state.showFavorites}
     },
     extraReducers: builder => {

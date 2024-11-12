@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux"
 import {
-  selectEditedContact,
   selectFilteredContacts,
-  selectOpenModal,
   selectShowFavorites,
 } from "../../redux/contacts/selectors"
-import EditContactModal from "../EditContactModal/EditContactModal"
 import Contact from "../Contact/Contact"
 import s from "./ContactList.module.css"
 import { useEffect, useState } from "react"
@@ -23,8 +20,6 @@ const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts).toSorted((a, b) =>
     b.name.localeCompare(a.name, "en", { sensitivity: "base" })
   )
-  const selectedContact = useSelector(selectEditedContact)
-  const isModalOpen = useSelector(selectOpenModal)
 
   const showFavorite = useSelector(selectShowFavorites)
 
@@ -49,9 +44,6 @@ const ContactList = () => {
           </li>
         ))}
       </ul>
-      {isModalOpen && selectedContact && (
-        <EditContactModal contact={selectedContact} />
-      )}
     </div>
   )
 }
