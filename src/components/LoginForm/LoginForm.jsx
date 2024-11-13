@@ -1,26 +1,14 @@
 import { Field, Form, Formik,ErrorMessage } from "formik"
-import * as Yup from "yup"
 import s from "./LoginForm.module.css"
 import { useDispatch } from "react-redux"
 import { login } from "../../redux/auth/operations"
 import toast from "react-hot-toast"
+import { LoginSchema } from "../../services/validationYup"
 
 
-const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
-const LoginSchema = Yup.object().shape({
-  email: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .email()
-    .required("Required field").
-    matches(emailPattern,"Email is not correct"),
-  password: Yup.string()
-    .min(8, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required field"),
-})
+
 
 const LoginForm = () => {
 
@@ -47,6 +35,7 @@ const LoginForm = () => {
   }
 
   return (<div className={s.loginBox}>
+    <p className={s.loginText}>Login to start</p>
    <div className={s.formikBox} >
      <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={LoginSchema}>
     <Form className={s.loginFormBox}>

@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")).render(
           <Toaster
             toastOptions={{
               style: {
-                backgroundColor: "rgba(255, 255, 255, 0.300)",
+                backgroundColor: "rgba(255, 255, 255, 0.400)",
                 color: "rgb(255, 255, 255)",
               },
               position: "bottom-center",

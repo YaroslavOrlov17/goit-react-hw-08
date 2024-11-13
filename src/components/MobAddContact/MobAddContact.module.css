@@ -1,0 +1,70 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    label {
+      font-weight: 600;
+    }
+  }
+    
+    .formName,
+    .formNumber {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    .formInput {
+      width: 100%;
+      padding-right: 40px;
+    }
+  
+    .btnBoxF{
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      font-size: 20px;
+    }
+  
+    .formBtnCancel {
+      color: rgb(206, 59, 59);
+      min-width: 100px;
+    }
+  
+    .formBtnCancel:hover {
+    
+      border: 1.5px solid rgb(206, 59, 59);
+    }
+  
+    .formBtnSave {
+      color: rgb(59, 163, 81);
+      min-width: 100px;
+    }
+    .formBtnSave:hover {
+      border: 1.5px solid rgb(59, 163, 81);
+    }
+  
+    .error {
+      position: absolute;
+      bottom: -45%;
+      font-size: 14px;
+      left: 5px;
+      color: red;
+    }
+    
+    .contactIconF,
+    .phoneIconF {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      pointer-events: none;
+    }
+    @media (min-width: 768px){
+      .addContactBtn {
+        display: none;
+      }
+    }
+  

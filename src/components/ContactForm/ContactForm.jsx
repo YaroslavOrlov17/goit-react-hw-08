@@ -1,33 +1,19 @@
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { nanoid } from "nanoid"
-import * as Yup from "yup"
 import { FaPhoneSquare } from "react-icons/fa"
 import { IoPersonCircle } from "react-icons/io5"
 import { useDispatch } from "react-redux"
 import { addContact } from "../../redux/contacts/operations"
 import { IMaskInput } from 'react-imask';
-
 import s from "./ContactForm.module.css"
 import toast from "react-hot-toast"
 import { useState } from "react"
+import { ContactSchema } from "../../services/validationYup"
 
 const initialValues = {
   name: "",
   number: "",
 }
-
-
-
-const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required field"),
-  number: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required field"),
-})
 
 const ContactForm = () => {
   const [number, setNumber] = useState('');

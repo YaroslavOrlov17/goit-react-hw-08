@@ -1,44 +1,53 @@
 .contactsPage {
-  position: relative;
   margin: 0 auto;
-  padding: 15px 50px 15px 50px;
+  padding: 15px;
+
   width: 90%;
   height: 80vh;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+ 
+  gap: 10px;
+
   background-color: rgba(252, 252, 252, 0.158);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
-  overflow: hidden;
 }
 
-@media (max-width: 1090px) {
-  .contactsPage{
-    padding: 15px 15px 15px 15px;
-  }
- }
 
-
-.fakeDiv{
-  width: 40%;
-}
 
 .contactForm {
-  position: fixed; 
-  top: 350px;  
-  left: 25%;
-  transform: translate(-50%, -50%); 
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (max-width: 850px) {
-  .contactForm {
-    position: fixed; 
-    top: 350px;  
-    left: 200px;
-    transform: translate(-50%, -50%); 
+
+@media(max-width: 767px){
+  .contactsPage{
+    flex-wrap: wrap;
+    overflow: hidden;
+    height: 85vh;
   }
- }
+  .titleBox {
+    display: none;
+  }
+  .contactForm {
+   height: 30%;
+  }
+}
+
+
+.contactFormContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 
 
 .titleBox{

@@ -38,7 +38,7 @@ const ContactList = () => {
     <div className={s.contactListBox}>
       <ul className={s.contactList}>
         {displayedFavContacts.map((contact) => (
-          <li key={contact.id}>
+          <li className={s.contactItem} key={contact.id}>
             <Contact contactData={contact} addFavorite={toggleFavorite} favContacts={favoritesContacts} />
           </li>
         ))}

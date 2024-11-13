@@ -1,22 +1,8 @@
 .contactBox {
-  min-width: 450px;
-  max-width: 500px;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.151);
-  box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
-  border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  gap: 0;
 }
-
- @media (max-width: 1090px) {
-  .contactBox{
-    margin-right: 0px;
-    min-width: 280px;
-   }
- }
-
-
 
 .infoBox{
   display: flex;
@@ -37,6 +23,7 @@
 
 .btnBox {
   display: flex;
+  flex-direction: column;
   gap: 5px;
 }
 
@@ -44,6 +31,16 @@
   height: 40px;
   width: 40px;
   padding: 5px;
+}
+
+.favBtn {
+  margin-left: 5px;
+  height: 30px;
+  width: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
 }
 
 .form {

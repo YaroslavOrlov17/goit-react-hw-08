@@ -1,5 +1,5 @@
 .favBtn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -9,4 +9,11 @@
 
 .active {
     border: 2px solid white;
+}
+
+.btnBox {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
 }

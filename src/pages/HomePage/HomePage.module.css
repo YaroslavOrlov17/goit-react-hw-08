@@ -14,11 +14,20 @@
 
 @media (max-width: 769px) {
     .mainTitleBox {
-        margin-top: 200px;
+        margin-top: 180px;
         text-align: center;
      }
      .mainTitle{
         font-size: 55px;
+    }
+    
+}
+@media (max-width: 576px) {
+    .mainTitleBox {
+        margin-top: 150px;
+     }
+     .mainTitle{
+        font-size: 50px;
     }
     
 }

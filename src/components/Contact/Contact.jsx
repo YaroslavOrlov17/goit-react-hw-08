@@ -10,7 +10,6 @@ import { FaStar } from "react-icons/fa";
 import toast from "react-hot-toast"
 import Swal from "sweetalert2"
 import { selectShowFavorites } from "../../redux/contacts/selectors"
-import * as Yup from "yup"
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import { nanoid } from "nanoid"
 import ReactDOM from 'react-dom/client';
@@ -18,6 +17,8 @@ import { IMask } from "react-imask"
 import { IMaskInput } from 'react-imask';
 
 import { useMemo } from "react"
+import clsx from "clsx"
+import { ContactSchema } from "../../services/validationYup"
 
 const Contact = ({ favContacts,contactData,contactData: { name, number, id },addFavorite}) => {
 
@@ -74,21 +75,7 @@ const Contact = ({ favContacts,contactData,contactData: { name, number, id },add
    return addFavorite(id)
   }
 
-const handleEditContact = (contactData) => {
-
-const phoneRegExp = /^\d+$/
-
-const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, "Too Short!")
-    .max(20, "Too Long!")
-    .required("Required field"),
-  number: Yup.string()
-    .min(3, "Too Short!")
-    .max(20, "Too Long!")
-    .matches(phoneRegExp, "Incorrect phone number")
-    .required("Required field"),
-})
+  const handleEditContact = (contactData) => {
 
 const nameId = nanoid()
 const numId = nanoid() 
@@ -196,6 +183,7 @@ Swal.fire({
       <div className={s.infoBox}>
         <p className={s.contactName}>
           <IoPersonCircle className={s.contactIcon} size="25" /> {name}
+          <button onClick={()=> handleAddToFavorite(id)} className={clsx(s.btn,s.favBtn)}>{isActive ? <FaStar size="25" /> : <FaRegStar size="25"/>}</button>
         </p>
         <p className={s.contactName}>
           <FaPhoneSquare className={s.contactIcon} size="25" /> {formattedNumber}
@@ -204,7 +192,6 @@ Swal.fire({
       <div className={s.btnBox}>
       <button onClick={()=> handleDeleteContact(id)} className={s.btn}><MdDelete size="25" /></button>
       <button onClick={()=> handleEditContact(contactData)} className={s.btn}><MdEdit size="25" /></button>
-      <button onClick={()=> handleAddToFavorite(id)} className={s.btn}>{isActive ? <FaStar size="25" /> : <FaRegStar size="25"/>}</button>
       </div>
     </div>
   )

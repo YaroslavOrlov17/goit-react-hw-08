@@ -26,8 +26,8 @@ function ContactsPage() {
  
   return (
     <div className={s.contactsPage}>
-      <div className={s.fakeDiv}></div>
       <div className={s.contactForm}>
+        <div className={s.contactFormContent}>
       <div className={s.titleBox}>
         <div className={s.position}>
         <h1 className={s.pbTitle}>PhoneBook</h1>
@@ -37,6 +37,7 @@ function ContactsPage() {
       <ContactForm  /> 
       <SearchBox />
       <Favorite/>
+      </div>
       </div>
       <ContactList />
     </div>
