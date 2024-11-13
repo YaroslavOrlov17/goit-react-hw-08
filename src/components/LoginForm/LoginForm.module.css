@@ -59,8 +59,6 @@
 .infoBox {
     position: relative;
     padding-top: 150px;
-    /* display: flex;
-    align-items: center; */
 }
 
 .infoTitle {
@@ -76,6 +74,10 @@
     margin-top: 3px;
     font-size: 14px;
     color: red;
+  }
+
+  .loginText{
+    display: none;
   }
 
 
@@ -99,20 +101,17 @@
        
     }
    }
-  
-
-   .loginText{
-     display: none;
-   }
 
    @media (max-width: 768px){
     .infoBox{
         display: none;
     }
+
     .loginBox {
        display: block;
        height: 85vh;
     }
+
     .formikBox {
         width: 300px;
         height: 85%;
@@ -121,17 +120,13 @@
         display: block;
     }
 
-    /* .loginFormBox {
-        width: 260px;
-    } */
-
     .loginText{
         display: block;
         text-align: center;
         color: white;
         font-weight: bold;
         font-size: 25px;
-        padding-top: 80px;
+        padding-top: 30px;
         margin-bottom: 20px;
       }
   }

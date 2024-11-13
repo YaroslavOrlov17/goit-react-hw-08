@@ -14,15 +14,6 @@
   }
 }
 
-
-@media(max-width: 767px){
-  .form {
-   display: none;
-  }
-}
-
-
-
 .formName,
 .formNumber {
   position: relative;
@@ -54,4 +45,11 @@
   transform: translateY(-50%);
   right: 10px;
   pointer-events: none;
+}
+
+
+@media(max-width: 767px){
+  .form {
+   display: none;
+  }
 }

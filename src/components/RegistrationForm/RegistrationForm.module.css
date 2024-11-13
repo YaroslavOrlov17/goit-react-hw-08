@@ -89,6 +89,7 @@
    .loginText {
     display: none;
    }
+   
    @media (max-width: 768px){
     .infoBox{
         display: none;
@@ -112,7 +113,7 @@
         color: white;
         font-weight: bold;
         font-size: 25px;
-        padding-top: 80px;
+        padding-top: 30px;
         margin-bottom: 20px;
       }
   }

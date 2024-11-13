@@ -14,14 +14,6 @@
   width: 400px;
 }
 
-@media (max-width: 1090px) {
-  .searchInput {
-    width: 340px;
-  }
-  
- }
-
-
 .searchBox {
   position: relative;
 }
@@ -33,6 +25,14 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+
+@media (max-width: 1090px) {
+  .searchInput {
+    width: 340px;
+  }
+  
+ }
 
 @media(max-width: 425px){
   .searchInput {

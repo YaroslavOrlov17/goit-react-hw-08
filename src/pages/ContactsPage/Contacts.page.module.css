@@ -16,30 +16,12 @@
   box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
 }
 
-
-
 .contactForm {
   width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-
-@media(max-width: 767px){
-  .contactsPage{
-    flex-wrap: wrap;
-    overflow: hidden;
-    height: 85vh;
-  }
-  .titleBox {
-    display: none;
-  }
-  .contactForm {
-   height: 30%;
-  }
-}
-
 
 .contactFormContent {
   display: flex;
@@ -65,3 +47,16 @@
   
   }
   
+  @media(max-width: 767px){
+    .contactsPage{
+      flex-wrap: wrap;
+      overflow: hidden;
+      height: 85vh;
+    }
+    .titleBox {
+      display: none;
+    }
+    .contactForm {
+     height: 30%;
+    }
+  }

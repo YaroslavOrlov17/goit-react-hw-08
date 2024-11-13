@@ -18,8 +18,8 @@ createRoot(document.getElementById("root")).render(
           <Toaster
             toastOptions={{
               style: {
-                backgroundColor: "rgba(255, 255, 255, 0.400)",
-                color: "rgb(255, 255, 255)",
+                backgroundColor: "white",
+                color: "black",
               },
               position: "bottom-center",
             }}

@@ -8,20 +8,6 @@
   padding-right: 10px;
  }
 
- @media(min-width: 1024px){
-  .contactListBox{
-    width: 35%;
-    
-   }
- }
- @media(max-width: 767px){
-  .contactListBox{
-   overflow-y: scroll;
-   height: 70%;
-   width: 100%;
-   }
- }
-
  .contactListBox::-webkit-scrollbar {
   width: 50px; 
 }
@@ -42,6 +28,21 @@
   box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
   border-radius: 10px;
 }
+
+@media(min-width: 1024px){
+  .contactListBox{
+    width: 35%;
+    
+   }
+ }
+ 
+ @media(max-width: 767px){
+  .contactListBox{
+   overflow-y: scroll;
+   height: 70%;
+   width: 100%;
+   }
+ }
 
 
 
