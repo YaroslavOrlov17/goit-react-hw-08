@@ -4,11 +4,18 @@ import { useDispatch } from "react-redux"
 import { register } from "../../redux/auth/operations"
 import toast from "react-hot-toast"
 import { RegisterSchema } from "../../services/validationYup"
+import { useState } from "react"
+import { IoMdEye, IoMdEyeOff } from "react-icons/io"
 
 
 
 
 const RegistrationForm = () => {
+
+  const [showPassword, setShowPassword] = useState(false)
+  const togglePasswordVisible = ()=> {
+    setShowPassword(prev=> !prev)
+  }
 
   const dispatch = useDispatch()
   const initialValues = {
@@ -37,21 +44,30 @@ const RegistrationForm = () => {
 <div className={s.formikBox} >
   <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={RegisterSchema}>
     <Form className={s.regFormBox}>
+
       <label className={s.label} >
         <span className={s.labelText}>Name</span>
         <Field className={s.input} type="text" name="name" placeholder="Enter your name"/> 
         <ErrorMessage className={s.error} name="name" component="span" />
       </label>
+
       <label className={s.label}>
         <span className={s.labelText}>Email</span>
         <Field className={s.input} type="email" name="email"  placeholder="Enter your email"/>
         <ErrorMessage className={s.error} name="email" component="span" />
       </label>
+
       <label className={s.label}>
       <span className={s.labelText}>Password</span>
-        <Field className={s.input} type="password" name="password" placeholder="Enter a password (at least 8 characters)"/>
+      <div className={s.passwordContainer}>
+        <Field className={s.input} type={showPassword ? 'text' : "password"} name="password" placeholder="Enter at least 8 characters"/>
+        <div className={s.toggleButton} onClick={togglePasswordVisible}>
+       {showPassword ? <IoMdEyeOff size="20"/> : <IoMdEye size="20"/>}
+       </div>
+       </div>
         <ErrorMessage className={s.error} name="password" component="span"/>
       </label>
+
       <button className={s.btn} type="submit">Register</button>
     </Form>
   </Formik>

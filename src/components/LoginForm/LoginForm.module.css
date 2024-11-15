@@ -80,6 +80,30 @@
     display: none;
   }
 
+  .passwordContainer {
+    position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+  
+  .input{
+    padding-right: 40px;
+ }
+
+  .toggleButton {
+    position: absolute;
+    right: 12px;
+    color: #ffffffa8;
+    width: 25px;
+    padding: 0;
+  }
+
+  
+  .toggleButton:hover,
+  .toggleButton:focus{
+    color: #ffffffea;
+  }
 
   @media (max-width: 950px) {
     .input{

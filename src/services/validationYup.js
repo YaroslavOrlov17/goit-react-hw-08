@@ -27,7 +27,7 @@ export const LoginSchema = Yup.object().shape({
     matches(emailPattern,"Email is not correct"),
   password: Yup.string()
     .min(8, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required field"),
 })
 
@@ -49,6 +49,6 @@ export const RegisterSchema = Yup.object().shape({
     matches(emailPattern,"Email is not correct"),
   password: Yup.string()
     .min(8, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required field"),
 })

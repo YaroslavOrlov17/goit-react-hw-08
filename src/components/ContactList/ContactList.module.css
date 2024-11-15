@@ -1,4 +1,5 @@
 .contactListBox{
+  position: relative;
   width: 50%;
   height: 100%;
   overflow-y: auto;
@@ -25,9 +26,16 @@
   width: 100%;
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.151);
-  box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.3);
+  box-shadow: -3px 5px 12px -11px rgba(0,0,0,0.1);
   border-radius: 10px;
+  transition: box-shadow 0.3s ease-out;
 }
+
+.contactItem:hover {
+  box-shadow: 6px 6px 12px -11px rgba(0,0,0,0.7);
+ 
+}
+
 
 @media(min-width: 1024px){
   .contactListBox{
@@ -42,6 +50,20 @@
    height: 70%;
    width: 100%;
    }
+ }
+
+
+ .noContacts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  max-width: 300px;
+
+  font-size: 22px;
+  text-align: center;
+  color: white;
  }
 
 

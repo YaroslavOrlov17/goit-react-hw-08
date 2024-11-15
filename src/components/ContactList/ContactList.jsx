@@ -17,7 +17,7 @@ const ContactList = () => {
 
 
   const contacts = useSelector((state) => state.filters.searchResults).toSorted((a, b) =>
-    b.name.localeCompare(a.name, "en", { sensitivity: "base" })
+    a.name.localeCompare(b.name, "en", { sensitivity: "base" })
   )
 
   const showFavorite = useSelector(selectShowFavorites)
@@ -36,13 +36,14 @@ const ContactList = () => {
 
   return (
     <div className={s.contactListBox}>
-      <ul className={s.contactList}>
+      {displayedFavContacts.length > 0 ?  <ul className={s.contactList}>
         {displayedFavContacts.map((contact) => (
           <li className={s.contactItem} key={contact.id}>
             <Contact contactData={contact} addFavorite={toggleFavorite} favContacts={favoritesContacts} />
           </li>
         ))}
-      </ul>
+      </ul> : <p className={s.noContacts}>There are no contacts in the list yet</p>}
+     
     </div>
   )
 }
