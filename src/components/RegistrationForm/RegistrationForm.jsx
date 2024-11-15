@@ -43,6 +43,8 @@ const RegistrationForm = () => {
     <p className={s.loginText}>Register to start </p>
 <div className={s.formikBox} >
   <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={RegisterSchema}>
+  {({ values }) =>
+  (
     <Form className={s.regFormBox}>
 
       <label className={s.label} >
@@ -61,15 +63,17 @@ const RegistrationForm = () => {
       <span className={s.labelText}>Password</span>
       <div className={s.passwordContainer}>
         <Field className={s.input} type={showPassword ? 'text' : "password"} name="password" placeholder="Enter at least 8 characters"/>
-        <div className={s.toggleButton} onClick={togglePasswordVisible}>
-       {showPassword ? <IoMdEyeOff size="20"/> : <IoMdEye size="20"/>}
-       </div>
+        {values.password && <div className={s.toggleButton} onClick={togglePasswordVisible}>
+       {showPassword ?<IoMdEye size="20"/>: <IoMdEyeOff size="20"/>}
+       </div>}
+        
        </div>
         <ErrorMessage className={s.error} name="password" component="span"/>
       </label>
 
       <button className={s.btn} type="submit">Register</button>
     </Form>
+  )}
   </Formik>
    </div>
    <div className={s.infoBox}>
